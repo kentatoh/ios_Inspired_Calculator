@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            table {
+                position: absolute;
+                top: 35%;
+                left: 45%;
+                }
+        
+            body {
+            text-align: center;
+            margin: auto;
+            background-repeat: no-repeat;
+        }
+
+            button {
+            background-color: whitesmoke;
+            border: none;
+            text-align: center;
+            font-family: Helvetica, sans-serif;
+            font-size: 16px;
+            width: 50;
+            height: 50;
+            }
+
+            .rowone button {
+            background-color:#d3d3d3;‹
+            }
+        
+            #equalsign {
+            background-color: orange;
+            height: 206;
+            }
+
+            #dotsign {
+            padding-left: 10px;
+            padding-right: 10px;
+            }
+
+            #display {
+            background-color: #696969;
+            color: white;
+            text-align: right;
+            width: 200;
+            height: 50;
+            font-family: Helvetica, sans-serif;
+            font-size: 32px;
+            }
+        </style>
+
+        <script>
+            const insert = num => {
+                document.getElementById("display").innerHTML += num;
+            }
+
+            const equal = () => {
+                document.getElementById("display").innerHTML = eval(document.getElementById("display").innerHTML);
+            }
+
+            const clean = () => {
+                document.getElementById("display").innerHTML = "";
+            }
+        </script>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <td colspan="4" id="display" z></td>
+            </tr>
+            <tr class="rowone">
+                <td><button onclick="insert('+')">+</button></td>
+                <td><button onclick="insert('-')">-</button></td>
+                <td><button onclick="insert('*')">×</button></td>
+                <td><button onclick="insert('/')">÷</button></td>
+            </tr>
+            <tr class="rowtwo">
+                <td><button onclick="insert(7)">7</button></td>
+                <td><button onclick="insert(8)">8</button></td>
+                <td><button onclick="insert(9)">9</button></td>
+                <td rowspan="4"><button id="equalsign" onclick="equal()">=</button></td>
+            </tr>
+            <tr class="rowthree">
+                <td><button onclick="insert(4)">4</button></td>
+                <td><button onclick="insert(5)">5</button></td>
+                <td><button onclick="insert(6)">6</button></td>
+            </tr>
+            <tr class="rowfour">
+                <td><button onclick="insert(1)">1</button></td>
+                <td><button onclick="insert(2)">2</button></td>
+                <td><button onclick="insert(3)">3</button></td>
+            </tr>
+            <tr class="rowfive">
+                <td><button onclick="insert(0)">0</button></td>
+                <td><button id="dotsign" onclick="insert('.')">.</button></td>
+                <td><button onclick="clean()">C</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
